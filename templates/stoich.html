@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Stoichiometry Calculator - CHEMulator</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="static/vendor/owl.carousel/static/owl.carousel.min.css" rel="stylesheet">
+  <link href="static/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="index"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="balance"><i class="bx bxs-flask"></i> <span>Chemical Equation Balancer</span></a></li>
+          <li><a href="combustion"><i class="bx bxs-flame"></i> <span>Combustion</span></a></li>
+          <li><a href="molarmass"><i class="bx bx-dumbbell"></i> <span>Molar Mass</span></a></li>
+          <li class = "active"><a href="stoich"><i class="bx bxs-sticker"></i> Stoichiometry</a></li>
+          <li><a href="percentcomp"><i class="bx bxs-pie-chart-alt-2"></i> Percent Composition</a></li>
+
+        </ul>
+      </nav><!-- .nav-menu -->
+      <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Stoichiometry Calculator</h2>
+          <ol>
+            <li><a href="index">Home</a></li>
+            <li>Stoichiometry</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+      <div class="container">
+        <section id="about" class="about">
+          <div class="container">
+
+            <div class="section-title">
+              <h2>Stoichiometry Calculator</h2>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+
+                <p class = "font-italic">Stoichiometry is the calculation of reactants and products in chemical reactions in chemistry.</p>
+                 <p class = "font-italic"><strong>Warning:</strong> <br/>Elements that have a single value must be represented with the number 1. <br/>(e.g. H2O = H2O1, PO3 = P1O3, CO2 = C1O2) <br/> Coefficients must be whole numbers.</p>
+                <div class="row">
+                  <form method = "post" action = "/stoich">
+                    <ul>
+                      <li><i class="icofont-rounded-right"></i> <strong>Compound 1: </strong><input class = "overflow-hidden" name = "compound1" class="use-keyboard-input"></input></li>
+                      <li><i class="icofont-rounded-right"></i> <strong>Coefficient of Compound 1: </strong><input class = "overflow-hidden" name = "coefficient1" class="use-keyboard-input"></input></li>
+                      <li><i class="icofont-rounded-right"></i> <strong>Amount of Compound 1 (in grams): </strong><input class = "overflow-hidden" name = "amtOriginalEle" class="use-keyboard-input"></input></li>
+                      <li><i class="icofont-rounded-right"></i> <strong>Compound 2 (Product or Reactant): </strong><input class = "overflow-hidden" name = "compound2" class="use-keyboard-input"></input></li>
+                      <li><i class="icofont-rounded-right"></i> <strong>Coefficient of Compound 2: </strong><input class = "overflow-hidden" name = "coefficient2" class="use-keyboard-input"></input></li>
+                      {% if compound1 == Null %}
+                        <li><i class="icofont-rounded-right"></i>Your answer will appear here!</li>
+                        <br/>
+                      {% else %}
+                        <h2>Results</h2>
+                        <li><i class = "icofont-rounded-right"></i>Amount of moles for <strong>{{compound1}}</strong>: <strong>{{f_molesOfC1}}</strong></li>
+                        <li><i class = "icofont-rounded-right"></i>Amount of moles for <strong>{{compound2}}</strong>: <strong>{{f_molesOfC2}}</strong></li>
+                        <li><i class="icofont-rounded-right"></i>The Molar Mass of <strong>{{ compound2 }}</strong> for <strong>{{amtOriginalEle}}</strong> grams of <strong>{{compound1}}</strong>: <strong>{{f_amtOfC2}}</strong></li>
+                        <li><i class = "icofont-rounded-right"></i>The limiting reactant is: <strong>{{lr}}</strong></li>
+                         <li><i class = "icofont-rounded-right"></i>The excess reactant is: <strong>{{er}}</strong></li>
+                      {% endif %}
+                    </ul>
+                  <button type = "submit" class = "btn btn-primary">Calculate</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section><!-- End About Section -->
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Ryan Ho, JP Nguyen, Brandon Wong</span></strong>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/jquery/jquery.min.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="static/vendor/php-email-form/validate.js"></script>
+  <script src="static/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="static/vendor/counterup/counterup.min.js"></script>
+  <script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/vendor/venobox/venobox.min.js"></script>
+  <script src="static/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="static/vendor/typed.js/typed.min.js"></script>
+  <script src="static/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/js/main.js"></script>
+
+</body>
+
+</html>
