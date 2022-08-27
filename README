@@ -1,6 +1,7 @@
 # CHEMulator
 
 A full-stack web application based on the Python framework, Flask. Created for the 2021 Congressional App Challenge.
+
 ## Description
 
  CHEMulator was created by Ryan Ho, Brandon Wong, and John Paul Nguyen. Based on the Python framework, Flask, CHEMulator provided a web-based UI interface that was responsive and allowed users to process complex chemical problems in one or two keystrokes. The service offered combustion reaction calculators, chemical equation balancing, and stoichiometry, along with other additional features. Bootstrap and jQuery libraries were both used throughout the development of this web application. 
