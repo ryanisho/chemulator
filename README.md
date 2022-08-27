@@ -21,7 +21,7 @@ Ryan Ho
 [@ryanisho](https://instagram.com/ryanisho)
 
 John Paul Nguyen
-[@jp.nguyennn](https://wwwinstagram.com/jp.nguyennn]
+[@jp.nguyennn](https://wwwinstagram.com/jp.nguyennn)
 
 Brandon Wong
 [@brandonwxng](https://www.instagram.com/brandonwxng)
